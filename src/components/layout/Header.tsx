@@ -81,7 +81,7 @@ const Header = ({ user, categorySelector }: HeaderProps) => {
                         </nav>
                     </div>
 
-                    <Link href="#" className="absolute left-1/2 -translate-x-1/2">
+                    <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                         <span className="text-xl sm:text-2xl font-bold tracking-tight">DEAL</span>
                     </Link>
 

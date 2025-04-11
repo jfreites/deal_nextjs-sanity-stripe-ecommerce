@@ -35,9 +35,15 @@ export const getProductsByCategorySlug = async (slug: string) => {
   return products.data as Product[]
 }
 
+export const getProductById = async (id: string) => {
+  const query = `*[_type == "product" && _id ==$id][0]`
+  const product = await sanityFetch({ query: query, params: { id } })
+  return product.data as Product
+}
+
 export const searchProducts = async (query: string) => {
   const searchQuery = `*[_type == "product" && (
-    title match $query || description match $query || category->title match $query || category->slug.current match $query
+    title match "*" + $query + "*" || description match $query || category->title match $query || category->slug.current match $query
   )]`
   const products = await sanityFetch({ query: searchQuery, params: { query } })
   return products.data as Product[]

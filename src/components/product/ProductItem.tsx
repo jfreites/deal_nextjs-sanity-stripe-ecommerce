@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Product } from "../../../sanity.types"
 import { urlFor } from "@/sanity/lib/image"
+import Link from "next/link"
 
 type ProductItemProps = {
   product: Product
@@ -35,7 +36,12 @@ const ProductItem = ({product}: ProductItemProps) => {
                 <div className="text-xs text-green-500 font-semibold mb-2">
                     🔥 299+ sold in last 24h
                 </div>
-                <button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white py-2 rounded-full text-sm font-bold hover:brightness-110 transition-all">GRAB IT NOW!</button>
+                <Link 
+                    href={`/product/${product._id}`}
+                    className="w-full text-center bg-gradient-to-r from-red-500 to-orange-500 text-white py-2 rounded-full text-sm font-bold hover:brightness-110 transition-all"
+                >
+                    GRAB IT NOW!
+                </Link>
                 <div className="text-xs text-red-500 text-center mt-1 animate-pulse">
                     💣 Limited time offer!
                 </div>
